@@ -2,17 +2,10 @@ import React, { createContext, ReactNode } from 'react';
 
 import useAuth from '../hooks/useAuth';
 
-// type User = {
-//   id: string;
-//   name: string;
-//   avatar: string;
-// };
-
 type AuthContextType = {
-  // user: User | undefined;
   loading: boolean;
   authenticated: boolean;
-  handleLogin: () => Promise<void>;
+  handleLogin: (username:string, password:string) => Promise<void>;
   handleLogout: () => Promise<void>;
 };
 
