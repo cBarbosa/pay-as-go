@@ -49,3 +49,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 yarn add node-sass@^5.0.0
 yarn add react-router-dom
 yarn add @types/react-router-dom -D (Pendência de desenvolvimento)
+
+## Sites
+https://javascript.plainenglish.io/how-to-create-a-responsive-navbar-with-react-bb9ce4cebddd
+https://codesandbox.io/s/responsive-navbar-5yh7b?from-embed=&file=/src/assets/x.svg
+https://sdever.medium.com/building-a-responsive-navigation-bar-with-react-css-d9b30af03c20

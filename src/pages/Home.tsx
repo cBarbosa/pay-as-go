@@ -1,65 +1,85 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FormEvent, useState } from 'react';
 import { useTheme } from '../hooks/useTheme';
+import { HeaderNav } from '../components/HeaderNav';
+import { BottonNav } from '../components/BottonNav';
 
 import '../styles/home.scss';
+import { Button } from '../components/Button';
+// import serachIcon from '../assets/images/icons8-search.svg';
+import { User } from '../models/User';
+import { getByDocumentOrName } from '../services/UserService';
 
 export default function Home() {
-
   const { theme } = useTheme();
+  const [name, setName] = useState('');
+  const [users, setUsers] = useState<User[]>([]);
 
-  const [click, setClick] = useState(false);
+  // useEffect(() => {
+  //   (async () => {
+  //     const data = await get(name, '');
+
+  //     setUsers(data);
+  //   })();
+  // }, [name]);
+
+  async function handleSubmitSearch(event: FormEvent) {
+    event.preventDefault();
+    const result = await getByDocumentOrName(name, '');
+    if(result.length === 0)
+      setUsers([]);
+    setUsers(result);
+  }
 
   return (
     <div id='page-home' className={theme}>
-      <header className="header">
-        <nav className="navbar">
-            <Link to="/home" className="nav-logo">WebDev.</Link>
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
-                <li className="nav-item">
-                  <Link to="/users" className="nav-link">Clientes</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">Blog</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">About</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/" className="nav-link">Contact</Link>
-                </li>
-            </ul>
-            <div className="hamburger" onClick={() => setClick(!click)}>
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
-            </div>
-        </nav>
-      </header>
+      <HeaderNav />
       <main className={theme}>
-        <h1>Most Popular Browsers</h1>
-        <p>Chrome, Firefox, and Edge are the most used browsers today.</p>
+        <div className="content">
+          <h2>Consultas</h2>
+          
+          <div className="search-person">
+            <form action="" onSubmit={handleSubmitSearch}>
+              {/* <label>Pesquisa</label> */}
+              <input
+                type="text"
+                placeholder="Entre com o nome do cliente"
+                onChange={event => setName(event.target.value)}
+                value={name}
+              />
+              <Button
+                type="submit"
+                isOutlined={true}
+              >
+                {/* <img src={serachIcon} alt="Logo search" /> */}
+                Pesquisar
+              </Button>
+            </form>
+          </div>
+          <div className="separator">Resultado - { users.length } registros</div>
 
-        <article>
-          <h2>Google Chrome</h2>
-          <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular web browser today!</p>
-        </article>
+          <div className="list-person">
 
-        <article>
-          <h2>Mozilla Firefox</h2>
-          <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most popular web browser since January, 2018.</p>
-        </article>
+            {users.map(user => {
+              return (
+                <div key={user.recordId} className="user-card">
+                  <h3>{user.name}</h3>
+                  <p>{user.email}</p>
+                  <div>
+                    <p>{user.document}</p>
+                    <span>{user.phone}</span>
+                  </div>
+                  <div>
+                    <Button>Novo contrato</Button>
+                  </div>
+                </div>
+              );
+            })}
 
-        <article>
-          <h2>Microsoft Edge</h2>
-          <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced Internet Explorer.</p>
-        </article>
+          </div>
+
+        </div>
       </main>
-      <footer>
-        <p>Author: Charles Barbosa</p>
-        <p><a href="mailto:xbrown@gmail.com">xbrown@gmail.com</a></p>
-        <p>https://dev.to/devggaurav/let-s-build-a-responsive-navbar-and-hamburger-menu-using-html-css-and-javascript-4gci</p>
-      </footer>
+      <BottonNav />
     </div>
   );
 }

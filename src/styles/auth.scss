@@ -1,9 +1,8 @@
 #page-auth {
-    display: flex;
-    align-items: stretch;
-    height: 100vh;
-  
-  
+  display: flex;
+  align-items: stretch;
+  height: 100vh;
+
   aside {
     flex: 7;
     color: #FFF;
@@ -201,11 +200,11 @@
         background-color: #a8a8b3;
         margin-left: 16px;
       }
-  
     }
-      h1, strong{
-        color: #ffd900 !important;
-      }
+    
+    h1, strong{
+      color: #ffd900 !important;
+    }
     @media only screen and (max-width:800px){
         aside{
           strong{

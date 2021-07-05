@@ -36,22 +36,24 @@ export default function Login() {
           <img src={logoImg} alt="Letmeask" />
           <button className="create-room" >
             <img src={googleIconImg} alt="Logo do Google" />
-            Crie sua sala com o Google
+            Entre com Google
           </button>
-          <div className='separator'>ou entre em uma sala</div>
+          <div className='separator'>ou entre com email</div>
           <form action="" onSubmit={ handlePostLogin }>
             <input
               type="email"
-              placeholder="Digite o email do usuário"
+              placeholder="Digite o email para acesso"
               onChange={ event => setUsername(event.target.value) }
               value={username}
+              maxLength={100}
             />
 
             <input
               type="password"
-              placeholder="Digite a senha"
+              placeholder="Digite a senha para acesso"
               onChange={ event => setPassword(event.target.value) }
               value={password}
+              maxLength={20}
             />
 
             <Button type="submit">

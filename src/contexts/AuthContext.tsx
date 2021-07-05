@@ -6,7 +6,7 @@ type AuthContextType = {
   loading: boolean;
   authenticated: boolean;
   handleLogin: (username:string, password:string) => Promise<void>;
-  handleLogout: () => Promise<void>;
+  handleLogout: () => void;
 };
 
 type AuthContextProviderProps = {

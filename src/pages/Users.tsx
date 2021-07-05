@@ -1,31 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { User } from '../models/User';
 import api from '../services/api';
-import { Context } from '../contexts/AuthContext';
-
-type User = {
-    recordId: string;
-    document: string;
-    name: string;
-    birthDate: string;
-    gender: string;
-    genderTitle: string;
-    email: string;
-    phone: string;
-    zipcode: string;
-    street: string;
-    number: string;
-    neighborhood: string;
-    city: string;
-    federativeUnit: string;
-    complement: string;
-    profile: string;
-    profileTitle: string;
-    avatar: string;
-  };
 
 export default function Users() {
-  const { handleLogout } = useContext(Context);
+  
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -37,14 +15,10 @@ export default function Users() {
   }, []);
 
   return (
-    <>
       <ul>
         {users.map((user) => (
           <li key={user.recordId}>{user.name} ({user.email})</li>
         ))}
       </ul>
-
-      <button type="button" onClick={handleLogout}>Sair</button>
-    </>
   );
 }

@@ -1,0 +1,20 @@
+export type User = {
+  recordId: string;
+  document: string;
+  name: string;
+  birthDate: string;
+  gender: string;
+  genderTitle: string;
+  email: string;
+  phone: string;
+  zipcode: string;
+  street: string;
+  number: string;
+  neighborhood: string;
+  city: string;
+  federativeUnit: string;
+  complement: string;
+  profile: string;
+  profileTitle: string;
+  avatar: string;
+};

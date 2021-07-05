@@ -1,19 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Switch, Redirect, RouteProps, BrowserRouter as Router, Route  } from 'react-router-dom';
 
-import { AuthProvider, Context } from './contexts/AuthContext';
+import { AuthProvider} from './contexts/AuthContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
 
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Users from './pages/Users';
+import useAuth from './hooks/useAuth';
 
 export interface IRoute extends RouteProps{
     isPrivate?: boolean
 }
 
 function CustomRoute({ isPrivate, ...rest }:IRoute) {
-  const { loading, authenticated } = useContext(Context);
+  const { loading, authenticated } = useAuth();
+
+  console.debug('CustomRoute', {authenticated, isPrivate, rest});
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -23,9 +26,9 @@ function CustomRoute({ isPrivate, ...rest }:IRoute) {
     return <Redirect to="/login" />
   }
 
-  if(isPrivate === undefined && authenticated) {
-    return <Redirect to="/home" />
-  }
+  // if(isPrivate === undefined && authenticated) {
+  //   return <Redirect to="/home" />
+  // }
 
   return <Route {...rest} />;
 }
