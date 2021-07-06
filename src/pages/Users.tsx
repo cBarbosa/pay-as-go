@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { User } from '../models/User';
+import { Person } from '../models/Person';
 import api from '../services/api';
 
 export default function Users() {
   
-  const [users, setUsers] = useState<User[]>([]);
+  const [persons, setPersons] = useState<Person[]>([]);
 
   useEffect(() => {
     (async () => {
       const { data } = await api.get('/api/v1/person?name=cliente');
 
-      setUsers(data.data);
+      setPersons(data.data);
     })();
   }, []);
 
   return (
       <ul>
-        {users.map((user) => (
-          <li key={user.recordId}>{user.name} ({user.email})</li>
+        {persons.map((person) => (
+          <li key={person.recordId}>{person.name} ({person.email})</li>
         ))}
       </ul>
   );

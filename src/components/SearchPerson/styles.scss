@@ -1,0 +1,75 @@
+
+.search-person {
+    form {
+        display: flex;
+        // flex-direction: column;
+        gap: 16px;
+
+        input {
+            height: 50px;
+            border-radius: 8px;
+            // padding: 0 16px;
+            background-color: #FFF;
+            border: 1px solid #a8a8b3;
+            color:#000080;
+            text-indent: 1.5em;
+
+            >img {
+                align-self: flex-start;
+            }
+
+            &.dark{
+                color:'black';
+            }
+        }
+
+        button, input {
+            width: 100%;
+        }
+    }
+}
+
+.separator {
+    font-size: 14px;
+    color: #a8a8b3;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0px;
+
+    &::before{
+        content: '';
+        flex: 1;
+        height: 1px;
+        background-color: #a8a8b3;
+        margin-right: 16px;
+    }
+
+    &::after{
+        content: '';
+        flex: 1;
+        height: 1px;
+        background-color: #a8a8b3;
+        margin-left: 16px;
+    }
+}
+
+.list-person {
+    background: #fefefe;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    padding: 8px;
+
+    margin-top: 8px;
+
+    .user-card {
+        display: flex;
+        flex-wrap: wrap;
+
+        .user-info {
+            width: 70%;
+        }
+    }
+}

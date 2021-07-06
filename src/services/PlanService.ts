@@ -5,7 +5,7 @@ export const get = async () : Promise<Plan[]> => {
     try {
         const {data} = await api.get(`/api/v1/plan`);
 
-        return data.data;
+        return data.data as Plan[];
     } catch (error) {
         return [];
     }

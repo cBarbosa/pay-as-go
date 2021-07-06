@@ -1,8 +1,8 @@
-import { User } from "../models/User";
+import { Person } from "../models/Person";
 import api from "./api";
 
-export const getByDocumentOrName = async (name: string, document: string) : Promise<User[]> => {
-    let result: User[] = [];
+export const getByDocumentOrName = async (name: string, document: string) : Promise<Person[]> => {
+    let result: Person[] = [];
     try {
         if(document && !name) {
             const {data} = await api.get(`/api/v1/person?document=${document}`);
@@ -13,7 +13,7 @@ export const getByDocumentOrName = async (name: string, document: string) : Prom
             const {data} = await api.get(`/api/v1/person?name=${name}`);
             result = data.data;
         }
-        return result;
+        return result as Person[];
     } catch (error) {
         return [];
     }

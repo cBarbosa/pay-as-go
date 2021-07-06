@@ -1,4 +1,4 @@
-export type User = {
+export type Person = {
   recordId: string;
   document: string;
   name: string;

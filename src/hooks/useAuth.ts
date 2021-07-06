@@ -23,13 +23,13 @@ export default function useAuth() {
       throw Error('Não autenticado');
 
     try {
-      const { data }  = await api.post('api/v1/authentication', {
+      const { data: { data: { accessToken } } }  = await api.post('api/v1/authentication', {
         'userName': username,
         'password': password
       });
 
-      localStorage.setItem('token', JSON.stringify(data?.data.accessToken));
-      api.defaults.headers.Authorization = `Bearer ${data?.data.accessToken}`;
+      localStorage.setItem('token', JSON.stringify(accessToken));
+      api.defaults.headers.Authorization = `Bearer ${accessToken}`;
 
       setAuthenticated(true);
       history.push('/home');

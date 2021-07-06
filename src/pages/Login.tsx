@@ -27,9 +27,9 @@ export default function Login() {
   return (
     <div id='page-auth' className={theme}>
       <aside className={theme}>
-        <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
-        <strong>Crie salas de Q&amp;A ao vivo</strong>
-        <p>Tire as dúvidas de sua audiência em tempo real</p>
+        <img src={illustrationImg} alt="Ilustração simbolizando GB" />
+        <strong>GYM Manager</strong>
+        <p>Gestor da academia Gracie Barra Ceilândia</p>
       </aside>
       <main>
         <div className='main-content'>

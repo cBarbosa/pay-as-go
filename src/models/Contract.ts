@@ -1,5 +1,5 @@
 import { Plan } from "./Plan";
-import { User } from "./User";
+import { Person } from "./Person";
 
 export type Contract = {
     recordId: string;
@@ -11,6 +11,6 @@ export type Contract = {
     starts: Date;
     ends: Date;
     plan: Plan;
-    person: User;
-    persons: User[];
+    person: Person;
+    persons: Person[];
 };

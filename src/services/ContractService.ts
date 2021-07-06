@@ -1,20 +1,20 @@
-import { User } from "../models/User";
+import { Contract } from "../models/Contract";
 import api from "./api";
 
-export const get = async (name: string, document: string) : Promise<User[]> => {
-    let result: User[] = [];
+export const getAllContracts = async (recordPersonId: string) : Promise<Contract[]> => {
     try {
-        if(document && !name) {
-            const {data} = await api.get(`/api/v1/contract?document=${document}`);
-            result = data.data;
-        }
-
-        if(name) {
-            const {data} = await api.get(`/api/v1/person?name=${name}`);
-            result = data.data;
-        }
-        return result;
+            const {data} = await api.get(`/api/v1/contract/person/${recordPersonId}`);
+            return data.data as Contract[];
     } catch (error) {
         return [];
+    }
+}
+
+export const get = async (recordId: string) : Promise<Contract> => {
+    try {
+            const {data} = await api.get(`/api/v1/contract/${recordId}`);
+            return data.data as Contract;
+    } catch (error) {
+        return null as unknown as Contract;
     }
 }
