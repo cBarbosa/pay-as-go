@@ -54,3 +54,6 @@ yarn add @types/react-router-dom -D (Pendência de desenvolvimento)
 https://javascript.plainenglish.io/how-to-create-a-responsive-navbar-with-react-bb9ce4cebddd
 https://codesandbox.io/s/responsive-navbar-5yh7b?from-embed=&file=/src/assets/x.svg
 https://sdever.medium.com/building-a-responsive-navigation-bar-with-react-css-d9b30af03c20
+
+## Local Environment
+REACT_APP_API_URI = "https://localhost:5001"
