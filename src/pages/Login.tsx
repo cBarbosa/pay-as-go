@@ -34,7 +34,7 @@ export default function Login() {
       <main>
         <div className='main-content'>
           <img src={logoImg} alt="Letmeask" />
-          <button className="create-room" >
+          <button className="create-room" disabled={true}>
             <img src={googleIconImg} alt="Logo do Google" />
             Entre com Google
           </button>

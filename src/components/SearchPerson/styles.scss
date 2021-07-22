@@ -70,6 +70,32 @@
 
         .user-info {
             width: 70%;
+
+            img {
+                border: 0px;
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+            }
+        }
+
+        .action {
+            button {
+
+                border: 1px solid #fff0f0;
+                height: 35px;
+                border-radius: 6px;
+                font-weight: 400;
+                background: #e3e1e1;
+                color: #2e2e2e;
+
+                img {
+                    border: 0px;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 3px;
+                }
+            }
         }
     }
 }

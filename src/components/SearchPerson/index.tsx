@@ -4,6 +4,10 @@ import { getByDocumentOrName } from '../../services/UserService';
 import { Button } from '../Button';
 
 import './styles.scss';
+import imgIdCard from '../../assets/images/id-card-regular.svg';
+import imgMobileAlt from '../../assets/images/mobile-alt-solid.svg';
+import imgEnvelope from '../../assets/images/envelope-regular.svg';
+import imgContract from '../../assets/images/file-alt-regular.svg';
 
 export function SearchPerson() {
 
@@ -45,16 +49,32 @@ export function SearchPerson() {
                     <div className="user-card">
                       <div className="user-info">
                           <h3>{person.name}</h3>
-                        <p>{person.email}</p>
+                        <p>
+                          <img src={imgEnvelope} alt='Email de contato' />
+                          {person.email}
+                        </p>
                         <div>
-                            <p>{person.document}</p>
-                            <span>{person.phone}</span>
+                            <p>
+                              <img src={imgIdCard} alt='CPF' />
+                              {person.document}
+                            </p>
+                            <span>
+                              <img src={imgMobileAlt} alt='Número de telefone' />
+                              {person.phone}
+                            </span>
                         </div>
                       </div>
                     <div className="action">
-                        <Button>Novo contrato</Button>
-                        <Button>Novo contrato</Button>
-                        <Button>Novo contrato</Button>
+                        <button>
+                          <img src={imgContract} alt='Contratos' />
+                          Contratos
+                        </button>
+                        <button>
+                          Contrato 2
+                        </button>
+                        <button>
+                          Contrato 3
+                        </button>
                     </div>
                     </div>
                 </div>
