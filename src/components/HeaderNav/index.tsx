@@ -18,16 +18,16 @@ export function HeaderNav() {
     return(
         <header className="header">
             <nav className="navbar">
-                <Link to="/home" className="nav-logo">WebDev.</Link>
+                <Link to="/home" className="nav-logo">GB Ceilândia</Link>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item">
                         <Link to="/users" className="nav-link">Clientes</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">Blog</Link>
+                        <Link to="/home" className="nav-link">Contratos</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/" className="nav-link">About</Link>
+                        <Link to="/home" className="nav-link">Sobre</Link>
                     </li>
                     <li className="nav-item">
                         <span className="nav-link" onClick={handleDoLogout}>Sair</span>

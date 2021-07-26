@@ -8,9 +8,12 @@ import imgIdCard from '../../assets/images/id-card-regular.svg';
 import imgMobileAlt from '../../assets/images/mobile-alt-solid.svg';
 import imgEnvelope from '../../assets/images/envelope-regular.svg';
 import imgContract from '../../assets/images/file-alt-regular.svg';
+import imgAddressCard from '../../assets/images/address-card-regular.svg';
+import { useHistory } from 'react-router-dom';
+
 
 export function SearchPerson() {
-
+    const history = useHistory();
     const [name, setName] = useState('');
     const [persons, setPersons] = useState<Person[]>([]);
 
@@ -21,7 +24,7 @@ export function SearchPerson() {
         setPersons([]);
       setPersons(result);
     }
-    
+
     return (
         <>
           <div className="search-person">
@@ -66,14 +69,12 @@ export function SearchPerson() {
                       </div>
                     <div className="action">
                         <button>
-                          <img src={imgContract} alt='Contratos' />
+                          <img src={imgAddressCard} alt='Dados Cadastrais' />
+                          Dados
+                        </button>
+                        <button onClick={() => history.push(`/contracts/${person.recordId}`)}>
+                          <img src={imgContract} alt='Listar contratos' />
                           Contratos
-                        </button>
-                        <button>
-                          Contrato 2
-                        </button>
-                        <button>
-                          Contrato 3
                         </button>
                     </div>
                     </div>

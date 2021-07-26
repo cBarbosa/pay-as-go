@@ -1,7 +1,8 @@
 import { Plan } from "./Plan";
 import { Person } from "./Person";
+import { Installment } from "./Installment";
 
-export type Contract = {
+export type ContractModel = {
     recordId: string;
     installments: number;
     amount: number;
@@ -13,4 +14,5 @@ export type Contract = {
     plan: Plan;
     person: Person;
     persons: Person[];
+    installmentList: Installment[]; 
 };

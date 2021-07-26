@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Users from './pages/Users';
 import useAuth from './hooks/useAuth';
 import Contract from './pages/Contract';
+import ListContracts from './pages/ListContracts';
 
 export interface IRoute extends RouteProps{
     isPrivate?: boolean
@@ -43,7 +44,8 @@ export default function Routes() {
             <CustomRoute exact={true} path="/login" component={ Login } />
             <CustomRoute isPrivate exact={true} path="/home" component={ Home } />
             <CustomRoute isPrivate exact={true} path="/users" component={ Users } />
-            <CustomRoute isPrivate exact={true} path="/contract:id" component={ Contract } />
+            <CustomRoute isPrivate exact={true} path="/contracts/:id" component={ ListContracts } />
+            <CustomRoute isPrivate exact={true} path="/contract/:id" component={ Contract } />
           </Switch>
         </AuthProvider>
       </ThemeContextProvider>

@@ -4,8 +4,8 @@ import { Button } from '../components/Button';
 import { useTheme } from '../hooks/useTheme';
 import useAuth from '../hooks/useAuth';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
+import illustrationImg from '../assets/images/gym-logo.svg';
+import logoImg from '../assets/images/red-shield-full.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
 import '../styles/auth.scss';
@@ -33,7 +33,7 @@ export default function Login() {
       </aside>
       <main>
         <div className='main-content'>
-          <img src={logoImg} alt="Letmeask" />
+          <img src={logoImg} alt="Gym" />
           <button className="create-room" disabled={true}>
             <img src={googleIconImg} alt="Logo do Google" />
             Entre com Google

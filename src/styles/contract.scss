@@ -1,0 +1,71 @@
+#page-contract {
+  
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+  
+      // display: flex;
+      align-items: stretch;
+      justify-content: center;
+  
+      .content {
+        padding: 20px;
+
+        >h2 {
+          padding: 16px;
+          font-family: 'Poppins', sans-serif;
+          text-shadow:1px 1px 1px #000080;
+        }
+
+        >span {
+            top: 0px;
+            float: right;
+            border: 1px solid #000dff;
+            padding: 6px;
+            border-radius: 6px;
+            background-color: #f5f0f0;
+            font-size: 0.6em;
+        }
+
+        .contract-detail {
+          // h3 {
+          //   font-weight: 400;
+          // }
+
+          // h4 {
+          //   font-weight: 500;
+          // }
+
+          img {
+            border: 0px;
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+          }
+        }
+
+        .contract-persons {
+
+          .person-list {
+            img {
+              border: 0px;
+              width: 16px;
+              height: 16px;
+              margin-right: 3px;
+            }
+          }
+        }
+
+        .contract-payments {
+          img {
+            border: 0px;
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+          }
+        }
+  
+      }
+    }
+  
+  }
