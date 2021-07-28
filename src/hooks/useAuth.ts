@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import api from '../services/api';
 
@@ -20,7 +21,7 @@ export default function useAuth() {
   async function handleLogin(username:string, password: string)  {
 
     if(!username || !password)
-      throw Error('Não autenticado');
+      toast.error('Não autenticou');
 
     try {
       const { data: { data: { accessToken } } }  = await api.post('api/v1/authentication', {
@@ -35,7 +36,8 @@ export default function useAuth() {
       history.push('/home');
 
     } catch (error) {
-      throw Error(error);
+      // throw Error(error);
+      toast.error(error); 
     }
   }
 
