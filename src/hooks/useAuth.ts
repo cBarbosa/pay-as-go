@@ -33,7 +33,7 @@ export default function useAuth() {
       api.defaults.headers.Authorization = `Bearer ${accessToken}`;
 
       setAuthenticated(true);
-      history.push('/home');
+      history.replace('/home');
 
     } catch (error) {
       // throw Error(error);
@@ -45,7 +45,7 @@ export default function useAuth() {
     setAuthenticated(false);
     localStorage.removeItem('token');
     api.defaults.headers.Authorization = undefined;
-    history.push('/login');
+    history.replace('/login');
   }
 
   return { authenticated, loading, handleLogin, handleLogout };

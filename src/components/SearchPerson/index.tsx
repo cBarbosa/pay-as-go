@@ -10,6 +10,7 @@ import imgEnvelope from '../../assets/images/envelope-regular.svg';
 import imgContract from '../../assets/images/file-alt-regular.svg';
 import imgAddressCard from '../../assets/images/address-card-regular.svg';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 export function SearchPerson() {
@@ -20,8 +21,11 @@ export function SearchPerson() {
     async function handleSubmitSearch(event: FormEvent) {
       event.preventDefault();
       const result = await getByDocumentOrName(name, '');
-      if(result.length === 0)
+      if(result.length === 0) {
+        toast.error(`Sem resultados que satisfaçam aos parâmetros informados`);
         setPersons([]);
+      }
+        
       setPersons(result);
     }
 
