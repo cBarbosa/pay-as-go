@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
-import imgEnvelope from '../../assets/images/envelope-regular.svg';
-import imgAddressCard from '../../assets/images/address-card-regular.svg';
 import { ContractModel } from '../../models/Contract';
 import { getAllContracts } from '../../services/ContractService';
+
+import imgMoney from '../../assets/images/dollar-sign-solid.svg';
+import imgUser from '../../assets/images/user-regular.svg';
+import imgUserFriend from '../../assets/images/user-friends-solid.svg';
+import imgFile from '../../assets/images/file-alt-regular.svg';
 
 import './styles.scss';
 
@@ -49,25 +51,25 @@ export function ListContractsNav(props: ListContractsProps) {
                         <h3>{contract.plan.name}</h3>
                         <span>{contract.plan.code}</span>
                         <p>
-                            <img src={imgEnvelope} alt='' />
+                            <img src={imgMoney} alt='' />
                             {numberFormat(contract?.amount ? contract?.amount : 0)}
                             &nbsp;<span>({contract?.installments ? contract?.installments : 0} parcela(s) de {numberFormat(contract?.montlyAmount? contract?.montlyAmount : 0)})</span>
                         </p>
                         <p>
-                          <img src={imgEnvelope} alt='' />
+                          <img src={imgUser} alt='' />
                           {contract.person.name}
-                          <span>{contract.person.document}</span>
+                          &nbsp;<span>({contract.person.document})</span>
                         </p>
                         <p>
-                        <img src={imgEnvelope} alt='' />
+                        <img src={imgUserFriend} alt='' />
                           {contract.persons.length} beneficiários
                         </p>
                         
                       </div>
                       <div className="action">
                           <button onClick={() => history.push(`/contract/${contract.recordId}`)}>
-                            <img src={imgAddressCard} alt='Dados' />
-                            Dados
+                            <img src={imgFile} alt='Contrato' />
+                            Contrato
                           </button>
                       </div>
                     </div>

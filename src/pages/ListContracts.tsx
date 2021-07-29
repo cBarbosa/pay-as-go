@@ -7,6 +7,8 @@ import { useTheme } from '../hooks/useTheme';
 
 import '../styles/list-contracts.scss';
 
+import imgPlus from '../assets/images/plus-solid.svg';
+
 type RoomParams = {
   id: string;
 };
@@ -22,6 +24,9 @@ export default function ListContracts() {
       <main className={theme}>
         <div className="content">
           <h2>Lista de contratos</h2>
+          <button>
+            <img src={imgPlus} alt=''/>
+          </button>
 
           <ListContractsNav personId={personId} />
 

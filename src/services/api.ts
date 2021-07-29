@@ -35,14 +35,14 @@ axiosService.interceptors.response.use((response) => {
     const {status, data, config} = error.response;
 
     if(status === 401 && data.message === '') {
-        // history.push('/login');
         toast.error(`Você não está mais logado no sistema.`);
+        // history.replace('/login');
         return Promise.reject(error);
     }
 
     if(status === 404) {
-        // history.push('/404');
         toast.error(`not found`);
+        // history.replace('/404');
         return Promise.reject(error);
     }
     
