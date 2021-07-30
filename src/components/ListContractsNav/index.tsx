@@ -4,9 +4,7 @@ import { ContractModel } from '../../models/Contract';
 import { getAllContracts } from '../../services/ContractService';
 
 import imgMoney from '../../assets/images/dollar-sign-solid.svg';
-import imgUser from '../../assets/images/user-regular.svg';
 import imgUserFriend from '../../assets/images/user-friends-solid.svg';
-import imgFile from '../../assets/images/file-alt-regular.svg';
 
 import './styles.scss';
 
@@ -45,7 +43,7 @@ export function ListContractsNav(props: ListContractsProps) {
           <div className="separator">Resultado - { contracts.length } registros</div>
             {contracts.map(contract => {
               return (
-                <div className="list-contract" key={contract.recordId}>
+                <div className="list-contract" key={contract.recordId} onClick={() => history.push(`/contract/${contract.recordId}`)}>
                     <div className="contract-card">
                       <div className="contract-info">
                         <h3>{contract.plan.name}</h3>
@@ -56,21 +54,10 @@ export function ListContractsNav(props: ListContractsProps) {
                             &nbsp;<span>({contract?.installments ? contract?.installments : 0} parcela(s) de {numberFormat(contract?.montlyAmount? contract?.montlyAmount : 0)})</span>
                         </p>
                         <p>
-                          <img src={imgUser} alt='' />
-                          {contract.person.name}
-                          &nbsp;<span>({contract.person.document})</span>
-                        </p>
-                        <p>
                         <img src={imgUserFriend} alt='' />
                           {contract.persons.length} beneficiários
                         </p>
                         
-                      </div>
-                      <div className="action">
-                          <button onClick={() => history.push(`/contract/${contract.recordId}`)}>
-                            <img src={imgFile} alt='Contrato' />
-                            Contrato
-                          </button>
                       </div>
                     </div>
                 </div>

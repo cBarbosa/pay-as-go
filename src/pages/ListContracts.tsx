@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { BottonNav } from '../components/BottonNav';
 import { HeaderNav } from '../components/HeaderNav';
 import { ListContractsNav } from '../components/ListContractsNav';
@@ -15,6 +15,7 @@ type RoomParams = {
 
 export default function ListContracts() {
   const { theme } = useTheme();
+  const history = useHistory();
   const params = useParams<RoomParams>();
   const personId = params.id;
 
@@ -24,8 +25,10 @@ export default function ListContracts() {
       <main className={theme}>
         <div className="content">
           <h2>Lista de contratos</h2>
+          <h3>Nome do Titular</h3>
+          <span>00000000000</span>
           <button>
-            <img src={imgPlus} alt=''/>
+            <img src={imgPlus} alt='' onClick={_ => history.push('/contract-add')}/>
           </button>
 
           <ListContractsNav personId={personId} />

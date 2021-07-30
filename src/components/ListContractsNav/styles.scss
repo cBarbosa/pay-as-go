@@ -43,6 +43,7 @@
     .contract-card {
         display: flex;
         flex-wrap: wrap;
+        cursor: pointer;
 
         .contract-info {
             width: 70%;
@@ -52,28 +53,6 @@
                 width: 16px;
                 height: 16px;
                 margin-right: 5px;
-            }
-        }
-
-        .action {
-            max-width: 30%;
-            button {
-
-                border: 1px solid #fff0f0;
-                height: 35px;
-                width: 100%;
-                border-radius: 6px;
-                font-weight: 400;
-                background: #e3e1e1;
-                color: #2e2e2e;
-                cursor: pointer;
-
-                img {
-                    border: 0px;
-                    width: 16px;
-                    height: 16px;
-                    margin-right: 3px;
-                }
             }
         }
     }
